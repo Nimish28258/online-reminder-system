@@ -20,7 +20,7 @@ const ReminderForm = () => {
         selectedDate.getTime() - (selectedDate.getTimezoneOffset() * 60000)
       );
 
-      await axios.post('http://localhost:5000/api/reminders', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/reminders`, {
         title,
         description,
         date: utcDate

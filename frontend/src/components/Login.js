@@ -13,7 +13,7 @@ const Login = ({ setIsLoggedIn }) => {
       const endpoint = isSignup ? '/signup' : '/login';
       const payload = isSignup ? { name, email, password } : { email, password };
       
-      const res = await axios.post(`http://localhost:5000/api/auth${endpoint}`, payload);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth${endpoint}`, payload);
       if (!isSignup) {
         localStorage.setItem('token', res.data.token);
         setIsLoggedIn(true);

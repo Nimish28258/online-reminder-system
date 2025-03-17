@@ -17,7 +17,7 @@ const ReminderList = () => {
   const fetchReminders = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/reminders', {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/reminders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReminders(res.data);
@@ -34,7 +34,7 @@ const ReminderList = () => {
     if (!window.confirm('Are you sure you want to delete this reminder?')) return;
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/reminders/${id}`, {
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/reminders/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setReminders(prev => prev.filter(reminder => reminder._id !== id));
@@ -47,7 +47,7 @@ const ReminderList = () => {
     try {
       const token = localStorage.getItem('token');
       const res = await axios.put(
-        `http://localhost:5000/api/reminders/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/reminders/${id}`,
         updatedData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
