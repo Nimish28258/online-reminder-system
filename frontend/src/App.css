@@ -1,0 +1,368 @@
+/* App.css */
+:root {
+  --primary: #2c3e50;
+  --secondary: #3498db;
+  --danger: #e74c3c;
+  --success: #2ecc71;
+  --light: #ecf0f1;
+  --dark: #2c3e50;
+  --gray: #95a5a6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f8f9fa;
+}
+
+/* Auth Form */
+.auth-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2.5rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  animation: slideUp 0.4s ease;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.auth-form input:focus {
+  border-color: var(--secondary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+/* Reminder Form */
+.reminder-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.collapse-button {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.reminder-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  animation: slideDown 0.3s ease-out;
+}
+
+.reminder-form input,
+.reminder-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.reminder-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Reminder List */
+.reminder-list {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.reminder-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reminder-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.reminder-card h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.reminder-card p {
+  color: var(--gray);
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.reminder-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.list-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--light);
+}
+
+.list-header h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  background: var(--light);
+  color: var(--dark);
+  padding: 0.2rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.reminder-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 0.75rem 0;
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.status.sent {
+  background: rgba(46, 204, 113, 0.1);
+  color: var(--success);
+}
+
+.status.pending {
+  background: rgba(241, 196, 15, 0.1);
+  color: #f1c40f;
+}
+
+.icon-clock,
+
+.icon-trash::before {
+  content: "🗑";
+  margin-right: 0.5rem;
+  font-style: normal;
+}
+.action-btn {
+  padding: 0.5rem;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 2rem;
+  color: var(--gray);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  opacity: 0.7;
+}
+
+.empty-state img {
+  width: 200px;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.error-message {
+  background: #fee;
+  color: var(--danger);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.reminder-card {
+  position: relative;
+  margin-bottom: 1.5rem;
+  overflow: visible; /* Allow form to expand beyond card */
+}
+
+.edit-form-container {
+  position: relative;
+  z-index: 1;
+}
+
+.edit-form {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: absolute;
+  width: calc(100% + 3rem);
+  left: -1.5rem;
+  top: calc(100% - 1rem);
+}
+
+/* Add clear separation between cards */
+.reminder-list {
+  gap: 2rem;
+}
+
+/* Fix button spacing */
+.reminder-actions {
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;  /* Increased horizontal padding */
+  width: auto;           /* Remove fixed width */
+  gap: 0.5rem;           /* Add space between icon and text */
+}
+
+.btn-text {
+  display: inline-block; /* Ensure text visibility */
+}
+
+/* Buttons */
+button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.primary-btn {
+  background: var(--secondary);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: var(--gray);
+  color: white;
+}
+
+.danger-btn {
+  background: var(--danger);
+  color: white;
+}
+
+.danger-btn:hover {
+  background: #c0392b;
+}
+
+.logout-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading State */
+@keyframes loading {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: loading 0.8s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 1.5rem;
+  }
+  
+  .auth-form {
+    padding: 1.5rem;
+  }
+  
+  .reminder-form {
+    padding: 1.5rem;
+  }
+}
