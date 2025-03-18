@@ -32,39 +32,6 @@ The Online Reminder System is a full-stack web application that allows users to 
 - MongoDB Atlas: Cloud database service.
 
 
-
-
-## Setup Instructions
-1. Backend
-
-    Install dependencies:
-        cd online-reminder-system/backend
-        npm install
-
-    Create a .env file :
-        MONGO_URI= your_mongoDB_url
-        JWT_SECRET=your_jwt_secret
-        PORT=5000
-        BREVO_SMTP_LOGIN=your_smtp_login
-        BREVO_SMTP_PASSWORD=your_smtp_password
-        BREVO_SMTP_HOST=smtp-relay.brevo.com
-        BREVO_SMTP_PORT=587
-
-    Start the backend:
-        node server.js
-    
-2. Frontend
-
-    Install dependencies:
-        cd online-reminder-system/frontend
-        npm install
-    
-    Create a .env file:
-        REACT_APP_API_URL=http://localhost:5000
-    
-    Start the frontend:
-        npm start
-
 ## API Endpoints
 ### Authentication:
 - POST /api/auth/signup: Register a new user.
