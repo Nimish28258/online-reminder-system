@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 
 const ReminderForm = () => {
   const [title, setTitle] = useState('');
@@ -13,12 +14,7 @@ const ReminderForm = () => {
     setIsSubmitting(true);
     try {
       const token = localStorage.getItem('token');
-      const selectedDate = new Date(date);
-      
-      // Convert to UTC while maintaining local time values
-      const utcDate = new Date(
-        selectedDate.getTime() - (selectedDate.getTimezoneOffset() * 60000)
-      );
+      const utcDate = moment(date).utc().format();
 
       await axios.post(`${process.env.REACT_APP_API_URL}/api/reminders`, {
         title,

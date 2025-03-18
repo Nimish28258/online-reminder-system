@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 import axios from 'axios';
-
+import moment from 'moment';
 import EditReminderForm from './EditReminderForm';
 
 
@@ -89,7 +88,7 @@ const ReminderList = () => {
               <div className="reminder-meta">
                 <time>
                   <i className="icon-clock"></i>
-                  {new Date(reminder.date).toLocaleString()}
+                  {moment.utc(reminder.date).local().format("YYYY-MM-DD   hh:mm A")}
                 </time>
                 <span className={`status ${reminder.isSent ? 'sent' : 'pending'}`}>
                   {reminder.isSent ? 'Sent' : 'Pending'}

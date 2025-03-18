@@ -22,9 +22,9 @@ exports.getReminders = async (req, res) => {
 exports.updateReminder = async (req, res) => {
   try {
     const reminder = await Reminder.findOneAndUpdate(
-      { _id: req.params.id, user: req.user }, // Ensure user owns the reminder
+      { _id: req.params.id, user: req.user }, 
       req.body,
-      { new: true } // Return updated document
+      { new: true }
     );
 
     if (!reminder) return res.status(404).json({ error: "Reminder not found" });

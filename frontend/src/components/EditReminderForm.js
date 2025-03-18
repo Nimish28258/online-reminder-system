@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import moment from 'moment';
 const EditReminderForm = ({ reminder, onUpdate }) => {
   const [showEditForm, setShowEditForm] = useState(false);
   const [title, setTitle] = useState('');
@@ -11,7 +11,7 @@ const EditReminderForm = ({ reminder, onUpdate }) => {
     if (reminder) {
       setTitle(reminder.title);
       setDescription(reminder.description);
-      setDate(new Date(reminder.date).toISOString().slice(0, 16));
+      setDate(moment(reminder.date).local().format("YYYY-MM-DDTHH:mm"));
     }
   }, [reminder]);
 

@@ -2,14 +2,15 @@ const cron = require('node-cron');
 const Reminder = require('../models/Reminder');
 const User = require('../models/User');
 const { sendReminderEmail } = require('../utils/emailSender');
+const moment = require('moment-timezone');
 
 const scheduleReminders = () => {
   // Run every minute
   cron.schedule('* * * * *', async () => {
     try {
-      const now = new Date();
+      const nowDate =  moment().utc().format();
       const reminders = await Reminder.find({
-        date: { $lte: now.toISOString() },
+        date: { $lte: nowDate },
         isSent: false
       }).populate('user');
 
