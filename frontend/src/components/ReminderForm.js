@@ -29,6 +29,7 @@ const ReminderForm = () => {
       setDate('');
       setShowForm(false);
       alert('Reminder added successfully!');
+      window.location.reload();
     } catch (err) {
       alert('Failed to add reminder');
     } finally {

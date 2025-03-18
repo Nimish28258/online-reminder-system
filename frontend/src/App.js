@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-center" >Reminder System</h1>
+      <h1 className="App-name" >Reminder System</h1>
       {!isLoggedIn ? (
         <Login setIsLoggedIn={setIsLoggedIn} />
       ) : (

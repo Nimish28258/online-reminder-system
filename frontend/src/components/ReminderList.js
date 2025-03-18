@@ -76,7 +76,6 @@ const ReminderList = () => {
 
       ) : reminders.length === 0 ? (
         <div className="empty-state">
-          <img src="/calendar-illustration.svg" alt="No reminders" />
           <p>No reminders found. Time to create your first one!</p>
         </div>
 
