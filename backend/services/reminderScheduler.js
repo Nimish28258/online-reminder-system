@@ -3,6 +3,7 @@ const Reminder = require('../models/Reminder');
 const User = require('../models/User');
 const { sendReminderEmail } = require('../utils/emailSender');
 const moment = require('moment-timezone');
+const { now } = require('mongoose');
 
 const scheduleReminders = () => {
   // Run every minute
@@ -10,7 +11,7 @@ const scheduleReminders = () => {
     try {
       const nowDate =  moment().utc().format();
       const reminders = await Reminder.find({
-        date: { $lte: nowDate },
+        date: nowDate,
         isSent: false
       }).populate('user');
 
